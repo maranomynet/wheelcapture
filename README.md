@@ -7,7 +7,7 @@ when users are using their mouse-wheel to scroll the page.
 burst (or sequence) of wheel-events started on `capturingElm` or an element within `capturingElm`.
 
 
-## 0: Install and inclusion
+## Install and Inclusion
  
 ```
 npm install wheelcapture
@@ -16,7 +16,7 @@ npm install wheelcapture
 WheelCapture is CommonJS (`require()`) friendly, using `module.exports` by default -- setting `window.WheelCapture` only as last resort.
 
 
-# Configuration
+## Configuration
 
 You can control how many milliseconds must elapse for wheel-events to be considered separate/unconnected events.
 
@@ -27,7 +27,7 @@ WheelCapture.settings.delay = 400; // 400ms is the default
 ```
 
 
-# Usage
+## Usage
 
 React example:
 
