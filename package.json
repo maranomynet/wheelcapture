@@ -1,0 +1,25 @@
+{
+  "name": "wheelcapture",
+  "version": "2.0.0",
+  "description": "Tiny utility to avoid capturing (cancelling) wheel-events when users are using their mouse-wheel to scroll the page.",
+  "main": "wheelcapture.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maranomynet/wheelcapture.git"
+  },
+  "keywords": [
+    "mouse-wheel",
+    "wheel",
+    "scrolling"
+  ],
+  "author": "Hugsmiðjan ehf. <hugsmidjan@hugsmidjan.is> (http://www.hugsmidjan.is/)",
+  "contributors": ["Már Örlygsson <mar.nospam@anomy.net> (http://mar.anomy.net/)"],
+  "license": "MIT / GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/maranomynet/wheelcapture/issues"
+  },
+  "homepage": "https://github.com/maranomynet/wheelcapture#readme"
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WheelCapture demo</title>
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+        padding: 50px;
+        height: 300%;
+    }
+    .deadzone {
+        margin: 300px 0 0 0;
+        padding: 150px 30px;
+        text-align: center;
+        background: #eee;
+        background-image: radial-gradient(ellipse, #444 0%, #b9b9b9 35%, #e2e2e2 60%, #f8f8f8 100%);
+    }
+  </style>
+</head>
+<body>
+
+
+  <h1>WheelCapture demo</h1>
+  <div class="deadzone">I swallow wheel-events!!!</div>
+
+
+  <script src="wheelcapture.js"></script>
+  <script>
+    (function(){
+      WheelCapture.on();
+      var elm = document.querySelectorAll('.deadzone')[0];
+      elm.addEventListener('wheel', function(e){
+          if ( WheelCapture.isOkFor(elm) )
+          {
+            e.preventDefault();
+            console.log( 'Gulp! Yum!' );
+          }
+        });
+    })();
+  </script>
+</body>
+</html>
