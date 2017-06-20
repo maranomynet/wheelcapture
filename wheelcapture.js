@@ -9,7 +9,8 @@
 // ----------------------------------------------------------------------------------
 
 /* global module */
-(function(){'use strict';
+(function () {
+  'use strict';
   var body = document.body;
 
   var _numOns = 0;
@@ -17,55 +18,56 @@
   var _wheelBurstStartElm;
   var tOut;
   var _logWheelThrottled = function (e) {
-          if ( !tOut ) {
-            _wheelBurstStartElm = e.target;
-          }
-          clearTimeout(tOut);
-          tOut = setTimeout(function () {
-              tOut = undefined;
-            }, settings.delay || defaultDelay );
-        };
+    if ( !tOut ) {
+      _wheelBurstStartElm = e.target;
+    }
+    clearTimeout(tOut);
+    tOut = setTimeout(function () {
+      tOut = undefined;
+    }, settings.delay || defaultDelay );
+  };
 
   var defaultDelay = 400;
   var settings = {
-          delay: defaultDelay,
-        };
+    delay: defaultDelay,
+  };
 
   var _lastCheckedStartElm;
   var _lastOkReturnVal;
 
   var WheelCapture = {
 
-          on: function (opts) {
-              if ( opts && opts.delay ) {
-                settings.delay = opts.delay;
-              }
-              !_numOns  &&  body.addEventListener('wheel', _logWheelThrottled, true);
-              _numOns++;
-            },
+    on: function (opts) {
+      if ( opts && opts.delay ) {
+        settings.delay = opts.delay;
+      }
+      !_numOns  &&  body.addEventListener('wheel', _logWheelThrottled, true);
+      _numOns++;
+    },
 
-          off: function () {
-              _numOns  &&  _numOns--;
-              !_numOns  &&  body.removeEventListener('wheel', _logWheelThrottled, true);
-            },
+    off: function () {
+      _numOns  &&  _numOns--;
+      !_numOns  &&  body.removeEventListener('wheel', _logWheelThrottled, true);
+    },
 
-          isOkFor: function (elm) {
-              if ( _wheelBurstStartElm !== _lastCheckedStartElm ) {
-                _lastCheckedStartElm = _wheelBurstStartElm;
-                _lastOkReturnVal = elm.contains(_wheelBurstStartElm);
-              }
-              return _lastOkReturnVal;
-            },
+    isOkFor: function (elm) {
+      if ( _wheelBurstStartElm !== _lastCheckedStartElm ) {
+        _lastCheckedStartElm = _wheelBurstStartElm;
+        _lastOkReturnVal = elm.contains(_wheelBurstStartElm);
+      }
+      return _lastOkReturnVal;
+    },
 
-          settings: settings,
+    settings: settings,
 
-        };
+  };
 
   if ( typeof module !== 'undefined' && module.exports ) {
     module.exports = WheelCapture;
-  } else {
+  }
+  else {
     window.WheelCapture = WheelCapture;
   }
 
-}());
+})();
 
