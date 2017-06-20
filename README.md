@@ -2,6 +2,7 @@
 
 Tiny utility to avoid capturing (cancelling) wheel-events
 when users are using their mouse-wheel to scroll the page.
+(Think of annoying accidental map-zooms during page-scroll etc.)
 
 `WheelCapture.isOkFor( capturingElm );` returns `true` if the current 
 burst (or sequence) of wheel-events started on `capturingElm` or an element within `capturingElm`.
@@ -40,9 +41,8 @@ componentWillUnmount: function () {
     WheelCapture.off();
   },
 
-onWheelHandler: function (e) {
-    var capturingElm = this;
-    if ( WheelCapture.isOkFor(capturingElm) ) {
+handleOnWheel: function (e) {
+    if ( WheelCapture.isOkFor(e.currentTarget) ) {
       e.preventDefault();
       doTimelineShift();
     }
